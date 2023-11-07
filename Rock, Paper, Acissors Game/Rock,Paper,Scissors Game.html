@@ -1,0 +1,328 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Game.css" />
+    <title>Rock Paper Scissors Game</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-color: #c196a0;
+        height: 100vh;
+        font-size: 40px;
+      }
+      section {
+        padding-left: 30px;
+        padding-top: 50px;
+        font-size: 30px;
+        color: rgb(220, 215, 215);
+        line-height: 2;
+        position: absolute;
+        top: 70px;
+        left: 28%;
+        border: double;
+        border-bottom: none;
+        border-right: none;
+        border-color: rgb(247, 244, 244);
+        /* border-right-color: rgb(247, 244, 244); */
+        border-width: 20px;
+      }
+      button {
+        border-color: #c196a0;
+        position: absolute;
+        display: inline-block;
+        background: linear-gradient(to top left, #c4929e, #000000);
+        width: 30%;
+        font-size: 30px;
+        display: inline-block;
+        color: rgb(247, 244, 244);
+        height: 10%;
+        width: 24%;
+        border-radius: 20px;
+        border: none;
+      }
+      #Rock {
+        margin-left: 290;
+      }
+      #Paper {
+        margin-left: 200px;
+      }
+      #Scissors {
+        margin-left: 398px;
+      }
+      button:hover {
+        border-color: rgb(255, 255, 255);
+        color: aliceblue;
+      }
+      h2 {
+        color: rgb(247, 244, 244);
+      }
+      span {
+        color: rgb(247, 244, 244);
+      }
+      @media screen and (max-width: 1024px) {
+        .sec {
+          margin-left: -10rem;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .sec {
+          margin-left: -5rem;
+        }
+        .sec h1 {
+          font-size: 3px;
+        }
+        button {
+          width: 10rem;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="sec">
+      <h2>
+        &nbsp;&nbsp;💻&nbspComputer Choice:&nbsp;&nbsp;<span
+          id="computer-choice"
+        ></span>
+      </h2>
+      <h2>
+        &nbsp;&nbsp;👩🏻&nbsp;Your Choice:&nbsp;&nbsp;<span
+          id="user-choice"
+        ></span>
+      </h2>
+      <h2>&nbsp;&nbsp;⚪&nbsp;Result:&nbsp;&nbsp;<span id="result"></span></h2>
+      <br /><br />
+      <button id="Rock">Rock</button>
+      <button id="Paper">Paper</button>
+      <button id="Scissors" class="screen">Scissors</button>
+    </section>
+
+    <script>
+      "use strict";
+      const computerChoiceDisplay = document.getElementById("computer-choice");
+      const userChoiceDisplay = document.getElementById("user-choice");
+      const resultDisplay = document.getElementById("result");
+      const possibleChoices = document.querySelectorAll("button");
+      let userChoice;
+      let computerChoice;
+      let result;
+      possibleChoices.forEach((possibleChoice) =>
+        possibleChoice.addEventListener("click", (e) => {
+          userChoice = e.target.id;
+          userChoiceDisplay.innerHTML = userChoice;
+          generateComputerChoice();
+          getResult();
+        })
+      );
+
+      function generateComputerChoice() {
+        const randomNumber = Math.floor(
+          Math.random() * possibleChoices.length + 1
+        );
+        console.log(randomNumber);
+        if (randomNumber === 1) {
+          computerChoice = "Rock";
+        }
+        if (randomNumber === 2) {
+          computerChoice = "Paper";
+        }
+        if (randomNumber === 3) {
+          computerChoice = "Scissors";
+        }
+        computerChoiceDisplay.innerHTML = computerChoice;
+      }
+      function getResult() {
+        if (computerChoice === userChoice) {
+          result = `It's a draw!`;
+        }
+        if (computerChoice === "Rock" && userChoice === "Paper") {
+          result = `You win!`;
+        }
+        if (computerChoice === "Rock" && userChoice === "Scissors") {
+          result = `You lost!`;
+        }
+        if (computerChoice === "Paper" && userChoice === "Scissors") {
+          result = `You win!`;
+        }
+        if (computerChoice === "Paper" && userChoice === "Rock") {
+          result = `You lost!`;
+        }
+        if (computerChoice === "Scissors" && userChoice === "Rock") {
+          result = `You win!`;
+        }
+        if (computerChoice === "Scissors" && userChoice === "Paper") {
+          result = `You lost!`;
+        }
+        resultDisplay.innerHTML = result;
+      }
+    </script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #c196a0;
+        font-size: 23px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      section {
+        padding: 20px;
+        font-size: 30px;
+        color: #f7f4f4;
+        border: 20px double #f7f4f4;
+        border-bottom: none;
+        border-right: none;
+      }
+
+      h2 {
+        color: #f7f4f4;
+        margin-bottom: 10px;
+      }
+
+      .choices {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .choice {
+        margin: 0 5px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #f7f4f4;
+        background: linear-gradient(to top left, #c4929e, #000000);
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        border-color: #fff;
+        color: #fff;
+      }
+
+      @media screen and (max-width: 600px) {
+        section {
+          margin-top: 7rem;
+          padding: 10px;
+          font-size: 16px;
+        }
+
+        .choices {
+          flex-wrap: wrap;
+        }
+
+        .choice {
+          margin: 5px;
+        }
+
+        button {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section>
+        <h2>💻 Computer Choice: <span id="computer-choice"></span></h2>
+        <h2>👩🏻 Your Choice: <span id="user-choice"></span></h2>
+        <h2>⚪ Result: <span id="result"></span></h2>
+        <br /><br />
+        <div class="choices">
+          <button class="choice" id="Rock">Rock</button>
+          <button class="choice" id="Paper">Paper</button>
+          <button class="choice" id="Scissors">Scissors</button>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      "use strict";
+      const computerChoiceDisplay = document.getElementById("computer-choice");
+      const userChoiceDisplay = document.getElementById("user-choice");
+      const resultDisplay = document.getElementById("result");
+      const possibleChoices = document.querySelectorAll(".choice");
+      let userChoice;
+      let computerChoice;
+      let result;
+
+      possibleChoices.forEach((possibleChoice) =>
+        possibleChoice.addEventListener("click", (e) => {
+          userChoice = e.target.id;
+          userChoiceDisplay.textContent = userChoice;
+          generateComputerChoice();
+          getResult();
+        })
+      );
+
+      function generateComputerChoice() {
+        const randomNumber = Math.floor(Math.random() * possibleChoices.length);
+
+        if (randomNumber === 0) {
+          computerChoice = "Rock";
+        }
+        if (randomNumber === 1) {
+          computerChoice = "Paper";
+        }
+        if (randomNumber === 2) {
+          computerChoice = "Scissors";
+        }
+        computerChoiceDisplay.textContent = computerChoice;
+      }
+
+      function getResult() {
+        if (computerChoice === userChoice) {
+          result = `It's a draw!`;
+        }
+        if (computerChoice === "Rock" && userChoice === "Paper") {
+          result = `You win!`;
+        }
+        if (computerChoice === "Rock" && userChoice === "Scissors") {
+          result = `You lost!`;
+        }
+        if (computerChoice === "Paper" && userChoice === "Scissors") {
+          result = `You win!`;
+        }
+        if (computerChoice === "Paper" && userChoice === "Rock") {
+          result = `You lost!`;
+        }
+        if (computerChoice === "Scissors" && userChoice === "Rock") {
+          result = `You win!`;
+        }
+        if (computerChoice === "Scissors" && userChoice === "Paper") {
+          result = `You lost!`;
+        }
+        resultDisplay.textContent = result;
+      }
+    </script>
+  </body>
+</html>
